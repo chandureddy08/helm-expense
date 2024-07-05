@@ -1,0 +1,28 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: expense
+  name: mysql
+  labels:
+    # deployment related lables
+    component: mysql
+    project: expense
+    tier: db
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      component: mysql
+      project: expense
+      tier: db
+  template:
+    # pod definition
+    metadata:
+      labels:
+        component: mysql
+        project: expense
+        tier: db
+    spec:
+      containers:
+      - name: mysql
+        image: chandureddy08/mysql:{{ .Values.deployment.imageVersion}}

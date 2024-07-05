@@ -1,0 +1,4 @@
+apiVersion: v1
+name: mysql
+version: 1.0.0
+description: This is Helm implementation of mysql in expense project.
